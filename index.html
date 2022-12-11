@@ -8,21 +8,21 @@
     <title>Phantom_Devz Vue Form</title>
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.min.js"></script>
 
 
     <div id="app">
         <h1>Phantom_Devz Vue Form</h1>
-        <form action="">
+        <form @submit="submitForm" action="">
             <label for="name">First Name</label>
-            <input  type="text" name="firstname" id="firstname" v-model="firstname" required />
+            <input type="text" name="firstname" id="firstname" v-model="firstname" required/>
             <label for="name">Last Name</label>
-            <input  type="text" name="lastname" id="lastname" v-model="lastname" required/>
+            <input type="text" name="lastname" id="lastname" v-model="lastname" required/>
             <label for="email">Email</label>
-            <input  type="email" name="email" id="email" v-model="email" required/>
+            <input type="email" name="email" id="email" v-model="email" required/>
             <label for="phonenumber">Phone Number</label>
-            <input  type="tel" name="phonenumber" id="phonenumber" v-model="phonenumber" required/>
-            <button type="submit" @submit="submitForm">Submit</button>    
+            <input type="tel" name="phonenumber" id="phonenumber" v-model="phonenumber" required/>
+            <button type="submit">Submit</button>    
         </form>
 
         <h3>Hello {{ firstname }}, please confirm your details below before submitting:</h3>
@@ -52,20 +52,15 @@
                 },
                 methods: {
                     submitForm: function(e) {
+                    
                         e.preventDefault();
-                       
-                        if(firstname=='' || lastname=='' || email=='' || phonenumber=='') {
-                            alert('Please enter your details')
-                        }
-                        
-                        if(this.firstname && this.lastname && this.email && this.phonenumber != '') {
-                        alert(`Thank you ${this.firstname} your form has been submitted.`);
+                        alert(`Thank you ${this.firstname} your form has been submitted.`);    
 
                         this.firstname = '';
                         this.lastname = '';
                         this.email = '';
                         this.phonenumber = '';
-                        }
+                        
 
                     }
                     
