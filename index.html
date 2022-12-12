@@ -44,11 +44,13 @@
         <script>
              new Vue({
                 el: '#app',
-                data: {
+                data() {
+                    return {
                         firstname: '',
                         lastname: '',
                         email: '',
-                        phonenumber: ''               
+                        phonenumber: '' 
+                    }              
                 },
                 methods: {
                     submitForm: function(e) {
