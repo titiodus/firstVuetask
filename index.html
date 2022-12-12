@@ -15,13 +15,13 @@
         <h1>Phantom_Devz Vue Form</h1>
         <form @submit="submitForm" action="">
             <label for="name">First Name</label>
-            <input type="text" name="firstname" id="firstname" v-model="firstname" required/>
+            <input type="text" name="firstname" id="firstname" v-model="firstname" />
             <label for="name">Last Name</label>
-            <input type="text" name="lastname" id="lastname" v-model="lastname" required/>
+            <input type="text" name="lastname" id="lastname" v-model="lastname" />
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" v-model="email" required/>
+            <input type="email" name="email" id="email" v-model="email" />
             <label for="phonenumber">Phone Number</label>
-            <input type="tel" name="phonenumber" id="phonenumber" v-model="phonenumber" required/>
+            <input type="tel" name="phonenumber" id="phonenumber" v-model="phonenumber" />
             <button type="submit">Submit</button>    
         </form>
 
@@ -56,6 +56,13 @@
                     submitForm: function(e) {
                     
                         e.preventDefault();
+
+                        if(!this.firstname || !this.lastname || !this.email || !this.phonenumber) {
+                            alert('Please fill in all fields');
+                            return;
+                        }
+
+                        
                         alert(`Thank you ${this.firstname} your form has been submitted.`);    
 
                         this.firstname = '';
